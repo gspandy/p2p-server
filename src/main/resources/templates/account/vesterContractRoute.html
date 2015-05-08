@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:social="http://spring.io/springsocial"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<script th:src="@{/app/web/jquery/jquery-1.11.1.js}"></script>
+<head>
+<title></title>
+<meta charset="utf-8" />
+</head>
+<body>
+	<input hidden="true" id="msg" name="msg" th:value="${msg}" />
+	<script type="text/javascript">
+        var location = window.location;
+        var errUrl = location.protocol + "//" + location.hostname;
+        errUrl += '/#/fail/vesterPdfFail/999/';
+        errUrl += $('#msg').val();
+        window.location.href = errUrl;
+	</script>
+</body>
+</html>

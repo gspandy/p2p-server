@@ -1,0 +1,182 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=UTF-8"></meta>
+<title></title>
+<style type="text/css">
+body {
+	font-family: Arial Unicode MS;
+}
+	.fb{font-weight:bold;}
+	.MsoNormal{font-size:14px;margin:20px 0px;line-height:20px;}
+	.MsoNormalTable{border:1px solid #000;border-right:none;border-bottom:none;}
+	.MsoNormalTable th,.MsoNormalTable td{border-bottom:1px solid #000;border-right:1px solid #000;padding-left:5px;}
+	.textIndent{margin-left:1.0cm;text-align:left;text-indent:-1.0cm;mso-char-indent-count:0;}
+	.MsoListParagraph{line-height:22px;}
+
+
+</style>
+</head>
+<body>
+<p class='MsoNormal fb' align="right">编号：<u>  [${vo.contractNo}]  </u></p> 
+<p class='MsoNormal fb' align="center">借款协议</p>
+<p class='MsoNormal'>本借款协议（下称“本协议”）由以下各方于 ${vo.investReleaseYear} 年 ${vo.investReleaseMonth} 月 ${vo.investReleaseDay} 日在上海市黄浦区签署：
+</p>
+<p class='MsoNormal fb' >甲方（出借人）：</p>
+<table class='MsoNormalTable' border='0' cellspacing='0' cellpadding='0' width="100%">
+	<tr>
+		<th width="27%">
+			<p class='MsoNormal' align='center'>维金荟用户名</p>
+		</th>
+		<th width="18%">
+			<p class='MsoNormal' align='center'>出借金额(元)</p>
+		</th>
+		<th width="18%">
+			<p class='MsoNormal' align='center'>借款期限(月)</p>
+		</th>
+		<th width="35%">
+			<p class='MsoNormal' align='center'>每月应收本息(元)</p>
+		</th>
+	</tr>
+	 <#list vo.lenderList as lender>
+	 <tr>
+		<td>
+			<p class='MsoNormal'>${lender.showName}</p>
+		</td>
+		<td>
+			<p class='MsoNormal'>${lender.investmentAmount}</p>
+		</td>
+		<td>
+			<p class='MsoNormal'>${lender.lendPeriod}</p>
+		</td>
+		<td>
+			<p class='MsoNormal'>${lender.montyPayAmount}</p>
+		</td>
+	 </tr>
+	 </#list>
+</table>
+<p class="MsoNormal textIndent">注：因计算中存在四舍五入，最后一期应收本息与之前略有不同；本协议所称“甲方”根据上下文文义指甲方之全体或各甲方中的任一主体，且“甲方”包括原始出借人以及因受让转让之债权的所有买受人。
+</p>
+<p class='MsoNormal fb'>乙方（借款人）：</p>
+<p class='MsoNormal'>真实姓名：${vo.borrowerRealName}</p>
+<p class='MsoNormal'>身份证号：${vo.borrowerPid}</p>
+<p class='MsoNormal'>维金荟用户名：${vo.borrowerUserName}</p>
+<p class='MsoNormal'>电子邮件地址：${vo.borrowerEmail}</p>
+<p class='MsoNormal fb'>丙方（平台）：上海维信智荟互联网金融信息服务有限公司</p>
+<p class='MsoNormal'>住所：上海市浦东新区茂兴路88号4楼435室</p>
+<p class='MsoNormal'>签订时间：${vo.investReleaseYmd}</p>
+<p class='MsoNormal fb'>鉴于：</p>
+<p class='MsoListParagraph textIndent'>1. 丙方是一家在上海市合法成立并有效存续的有限责任公司，拥有<a href="http://www.vmoney">www.vmoney.cn </a>网站（下称“维金荟网站”或“维金荟平台”或“平台”）的经营权，并为各主体在维金荟网站上达成的交易提供信用咨询服务和信息服务，撮合借贷双方达成借贷交易；
+</p>
+<p class='MsoListParagraph textIndent'>2. 甲方均已在维金荟网站注册，并同意以其自有合法资金进行出借；</p>
+<p class='MsoListParagraph textIndent'>3. 乙方有借款需求，且已自行或委托其授权代理人在维金荟网站注册，并将其主体及借款需求信息通过其授权代理人提供予丙方并由丙方在维金荟网站发布；</p>
+<p class='MsoListParagraph textIndent'>4. 甲乙双方均同意通过自行或授权他人在维金荟网站操作并形成电子合同的方式达成借款交易。</p>
+<p class='MsoNormal'><b>据此，</b>各方经协商一致，达成如下协议，以资共同遵照履行：</p>
+<p class='MsoListParagraph'><b>1.  借款基本信息</b></p>
+<table class='MsoNormalTable' border='0' cellspacing='0' cellpadding='0' width='548'>
+	<tr>
+		<td><p class='MsoNormal'>借款详细用途</p></td>
+		<td><p class='MsoNormal' style='text-align:left;mso-pagination:widow-orphan'>${vo.loanTarget}</p></td>
+	</tr>
+	<tr>
+		<td><p class='MsoNormal'>借款本金</p></td>
+		<td><p class='MsoNormal'>${vo.loanAmount} 元（各出借人借款本金数额详见本协议文首表格）</p></td>
+	</tr>
+	<tr>
+		<td><p class='MsoNormal'>年利率</p></td>
+		<td><p class='MsoNormal'>${vo.investmentAnnualInterestRate}%</p></td>
+	</tr>
+	<tr>
+		<td><p class='MsoNormal'>借款期限</p></td>
+		<td><p class='MsoNormal'>${vo.investmentPeriod}期，自${vo.investReleaseYear}年${vo.investReleaseMonth}月${vo.investReleaseDay}日起</p></td>
+	</tr>
+	<tr>
+		<td><p class='MsoNormal'>月偿还本息</p></td>
+		<td><p class='MsoNormal'>${vo.montyPayAmount} 元（各出借人借款本金数额详见本协议文首表格）</p></td>
+	</tr>
+	<tr>
+		<td><p class='MsoNormal'>月付管理费</p></td>
+		<td><p>本金的${vo.p2pPayFeeRate}%，即 ${vo.p2pPayFee} 元</p></td>
+	</tr>
+	<tr>
+		<td><p class='MsoNormal'>还款日</p></td>
+		<td><p class='MsoNormal'>每月${vo.payDay}日</p></td>
+	</tr>
+</table>
+<p class='MsoListParagraph'><b>2.  协议的订立及支付</b></p>
+<p class='MsoListParagraph textIndent'>2.1 各方同意并确认，各方通过自行或授权有关方根据维金荟网站有关规则和说明，在维金荟网站进行借款申请操作和投标来确认签署本协议。</p>
+<p class='MsoListParagraph textIndent'>2.2 各方在维金荟网站进行借款申请操作和投标操作之前，均需仔细阅读并确认同意本协议各条款以及同意本协议的签署。各方通过上述方式签署本协议且各甲方同意出借资金总额达到乙方借款金额、丙方对本协议的签署程序、所涉内容进行复核通过时，本协议即成立并将在维金荟网站保存，各方均可查阅。</p>
+<p class='MsoListParagraph textIndent'>2.3 本协议成立后，甲方维金荟资金账户的出借资金划付至乙方的维金荟资金账户，即完成本协议项下资金的出借；该等出借资金在扣除乙方应付费用（如有）后，由乙方/乙方之授权代理人从乙方的维金荟资金账户提现至乙方的银行账户。<br/>本协议所称的“维金荟资金账户”，是指各方自行或委托其授权代理人在<b>上海汇付数据服务有限公司（简称汇付天下）开设的资金账户。</b>
+</p>
+<p class='MsoListParagraph'><b>3.各方权利和义务</b></p>
+<p class='MsoListParagraph'><b>3.1  甲方的权利和义务</b></p>
+<p class='MsoListParagraph textIndent'>3.1.1 甲方应保证向维金荟网站提供的信息、资料均为合法、真实、有效，不存在任何虚假、遗漏和隐瞒；同时，甲方保证其所用于出借的资金来源合法且是该资金的合法所有人，并非任何非法活动所得，也非汇集他人之资金或甲方受托管理之财产；如果第三人对资金归属、合法性问题发生争议，由甲方负责解决并自行承担相关责任；在该等争议解决（以取得生效的判决、裁决或行政命令、通知为标志）之前，丙方有权根据政府机关、司法机关或仲裁机关出具且生效的命令、判决、裁定或其他法律文件拒绝或通知借款人拒绝向甲方支付相关款项。
+</p>
+<p class='MsoListParagraph textIndent'>3.1.2 甲方享有其所出借款项所带来的利息收益，并应自行承担并缴付就该等利息收益应当缴付之税费（如有）。</p>
+<p class='MsoListParagraph textIndent'>3.1.3 丙方向甲方提供投资管理居间服务，甲方同意在借款成功后按月向丙方支付本次借款所得利息的<u>  ${vo.investmentManageFeeRate} </u>%作为投资管理费，该费用由甲方每月在收款当日支付，甲方同意授权汇付天下从甲方维金荟资金账户直接扣划该费用。</p>
+<p class='MsoListParagraph textIndent'>3.1.4 就任一甲方在本协议项下对乙方的部分或全部债权，任一甲方均有权限根据自己的意愿转让。</p>
+<p class='MsoListParagraph textIndent'>3.1.5 如乙方违反本协议项下对甲方负有的任何义务，甲方有权要求丙方提供其已获得的乙方信息、资料。</p>
+<p class='MsoListParagraph textIndent'>3.1.6 甲方承诺对依据本协议获得的乙方信息或资料予以保密，除用于本协议目的进行资金出借与合理催收外，不得向外转让或披露。</p>
+<p class='MsoListParagraph textIndent'>3.1.7 本协议和法律法规规定的其他权利和义务。</p>
+<p class='MsoListParagraph textIndent'><b>3.2 乙方权利和义务</b></p>
+<p class='MsoListParagraph textIndent'>3.2.1 乙方应当按期、足额向甲方归还每期应还本金和利息，以及按期足额向丙方支付平台管理费。</p>
+<p class='MsoListParagraph textIndent'>3.2.2 除按照本协议约定进行使用外，乙方不得将本协议项下之借款用于其他任何用途。</p>
+<p class='MsoListParagraph textIndent'>3.2.3 丙方向乙方提供展示融资需求服务，并撮合、匹配甲方和乙方之间达成借款交易，并对进行贷款管理工作，故乙方同意在借款后每月向丙方支付平台管理费，该费用由乙方每月与应还本息一并支付。</p>
+<p class='MsoListParagraph textIndent'>3.2.4 乙方在此同意并确认甲方可以根据自己的意愿对其根据本协议形成的对乙方的部分或全部债权进行转让；同时承诺若届时需要，将采取必要措施配合债权的一次或多次转让或届时债权人债权的实现。</p>
+<p class='MsoListParagraph textIndent'>3.2.5 乙方应确保其提供的信息和资料的真实性，不得提供虚假信息或隐瞒重要事实。若乙方违反本协议约定，丙方有权根据本协议及有关条款对乙方的信息和资料予以合理的披露。</p>
+<p class='MsoListParagraph textIndent'>3.2.6 乙方有权了解其在丙方的信用评审进度及结果。</p>
+<p class='MsoListParagraph textIndent'>3.2.7 除本协议另有约定外，乙方不得将本协议项下的任何权利义务转让给任何其他方。</p>
+<p class='MsoListParagraph textIndent'>3.2.8 当乙方因任何原因未能按期、足额偿付本协议项下应付款项时，甲方、丙方均有权直接向乙方主张违约责任。</p>
+<p class='MsoListParagraph textIndent'>3.2.9 本协议和法律法规规定的而其他权利和义务。</p>
+<p class='MsoListParagraph'><b>3.3  丙方的权利和义务</b></p>
+<p class='MsoListParagraph textIndent'>3.3.1 丙方有权根据乙方提供的各项信息及丙方独立获得的信息评定乙方在丙方处所拥有的个人信用等级，并根据对乙方个人信息的评审结果，决定是否将乙方的借款需求向甲方进行推荐。但丙方的评审行为不构成对乙方债务的任何保证。</p>
+<p class='MsoListParagraph textIndent'>3.3.2 丙方有权收取本协议约定的相关费用，并有权委托第三方收取。</p>
+<p class='MsoListParagraph textIndent'>3.3.3 对于乙方拖欠应付款项的行为，丙方有权利（但无义务）对乙方采取合理的还款催告措施。</p>
+<p class='MsoListParagraph textIndent'>3.3.4 本协议、相关授权文件和法律法规规定的其他权利和义务。</p>
+<p class='MsoListParagraph'><b>4.  债权转让</b></p>
+<p class='MsoListParagraph textIndent'>4.1 任一甲方均有权将其在本协议项下对乙方享有的债权之全部或部分向任何一个或多个主体进行转让（下称“债权转让”）。甲方进行债权转让的，受让方同时受让甲方在本协议项下之各项权利、义务并受本协议项下各条款之约束。</p>
+<p class='MsoListParagraph textIndent'>4.2 甲方进行债权转让的，将向乙方或乙方授权代理人发送债权转让通知（通知方式包括但不限于本协议10.6，），该等转让通知<b>一经向乙方或乙方授权代理人发出，即视为甲方已将债权转让事宜通知乙方，乙方不以任何理由对此提出异议或抗辩。且甲方有权委托他人（包括不限于丙方）代为发出该等通知。</b>债权转让后，债权受让人依法承接甲方在本协议项下的权利和义务，乙方需对债权受让人继续履行本协议下约定的还款义务。</p>
+<p class='MsoListParagraph'><b>5. 委托授权</b></p>
+<p class='MsoListParagraph textIndent'>5.1 <b>甲方在此同意并确认，授权丙方作为其代理人，代理甲方行使甲方在本协议项下之各项权利，包括但不限于按照本协议第7条规定提前解除本协议或宣布乙方未偿本息全部到期、向乙方或乙方授权代理人发送债权转让等通知、向乙方进行借款的违约提醒及催收工作（包括但不限于电话通知、上门通知、发律师函、对乙方提起诉讼等）；同时，甲方同意丙方将上述授权事项转委托。</b></p>
+<p class='MsoListParagraph'><b>6.  信息保护</b></p>
+<p class='MsoListParagraph textIndent'>6.1 各方在此确认，出于保护甲方信息安全的考虑，对于甲方的信息，仅甲方自己和/或其授权代理人以及丙方可见。但有鉴于维金荟网站用户账户名称的唯一性且维金荟网站对其用户均进行了真实身份验证，该等甲方真实身份在本协议项下的隐藏，并不对甲方真实意思的表示、本协议的有效性产生任何影响。</p>
+<p class='MsoListParagraph textIndent'>6.2 对于各甲方而言，丙方将按照维金荟网站用户注册协议（包括其有效修订和补充，下同）使用、披露其各项信息、资料；对于乙方而言，丙方有权配合甲方行使本协议项下各权利，向甲方提供乙方之各项信息、资料，同时，丙方还有权根据维金荟网站用户注册协议使用、披露乙方信息、资料。</p>
+<p class='MsoListParagraph'><b>7. 违约责任</b></p>
+<p class='MsoListParagraph textIndent'>7.1 合同各方均应严格履行合同义务，非经各方协商一致或依照本协议约定，任何一方不得解除本协议。</p>
+<p class='MsoListParagraph textIndent'>7.2 任何一方违约，违约方应承担违约使得其他各方产生的费用和损失，包括但不限于调查费、诉讼费、律师费等。</p>
+<p class='MsoListParagraph textIndent'>7.3 乙方偿还的每期还款均应按照如下顺序清偿：</p>
+<p class='MsoListParagraph'>7.3.1 平台管理费等乙方应付费用；</p>
+<p class='MsoListParagraph'>7.3.2 罚息；</p>
+<p class='MsoListParagraph'>7.3.3 利息；</p>
+<p class='MsoListParagraph'>7.3.4 本金；</p>
+<p class='MsoNormal'>当乙方存在两期及以上应还金额时，则应从发生时间最早的一期开始按上述顺序分配。</p>
+<p class='MsoListParagraph textIndent'>7.4 乙方应严格履行还款义务，如乙方逾期偿付本协议项下应付甲方的款项，则应按照下述条款就该逾期款项向甲方支付逾期罚息，且逾期本金部分在逾期后不再按照本协议约定利率计算利息：罚息金额 = 逾期本息总额×罚息利率×逾期天数，罚息利率：<u>      ${vo.justicInterestRate}%   </u>/日；对于乙方发生的每一笔逾期款项，均应按照本条规定分别计算罚息后加总。</p>
+<p class='MsoListParagraph textIndent'>7.5 除本协议另有约定外，发生如下任一情形的，甲方有权自行或授权丙方（或丙方委托的第三方）（根据本协议第5条的授权）向乙方发出书面通知（通知方式包括不限于本协议10.6约定的方式），宣布自通知发出之日或通知记载的其他日期（即“提前解约或到期日”）起，本协议提前解除或在本协议项下的借款全部到期，乙方应当在该等提前解约或到期日偿付其未偿之全部本金、届期利息和其他款项（如有）：</p>
+<p class='MsoListParagraph textIndent'>7.5.1 连续逾期三期以上（含三期）；</p>
+<p class='MsoListParagraph textIndent'>7.5.2 累计逾期达五期以上（含五期）；</p>
+<p class='MsoListParagraph textIndent'>7.5.3 乙方出现逃避、拒绝沟通或拒绝承认欠款事实、故意转让资产、信用情况恶化（乙方逾期后，即使其代偿人进行代偿，也构成乙方信用情况恶化）等任何危害或可能危害本协议项下甲方权利实现之情形；</p>
+<p class='MsoListParagraph textIndent'>7.5.4 乙方发生对外融资、担保且严重影响乙方在本协议项下的履约能力的。</p>
+<p class='MsoListParagraph textIndent'>7.6 发生本协议第7.5条规定情形时，丙方有权采取或授权第三方采取如下任一措施且无需承担任何责任：</p>
+<p class='MsoListParagraph textIndent'>7.6.1	将乙方的“逾期记录”、“恶意行为”或“不良情况”提供给中国人民银行个人信用信息基础数据库及信贷征信主管部门批准建立的个人信用数据库，以供有关单位、部门或个人依法查询和使用；</p>
+<p class='MsoListParagraph textIndent'>7.6.2 将乙方违约失信的相关信息及乙方其他信息向包括但不限于媒体、用人单位、公安机关、检察机关、法律机关及有关逾期款项催收服务机构披露；</p>
+<p class='MsoListParagraph textIndent'>7.6.3 以各种通讯手段(包括但不限于：电话、短信、微信等各种通讯手段告知乙方的近亲属、朋友乙方的欠款信息，并在丙方网站或其他报纸、网站上发布乙方的欠款信息，信息内容包括但不限于乙方的姓名、身份证号码、住址、工作单位、照片、欠款金额、逾期时间及违约责任等。</p>
+<p class='MsoListParagraph textIndent'>7.7 在乙方还清全部本金、利息、罚息之前，罚息的计算不停止。</p>
+<p class='MsoListParagraph textIndent'>7.8 本借款协议中的各甲方与乙方之间的借款均是相互独立的，一旦乙方逾期未归还借款本息，甲方中的任何一方均有权单独向乙方追索或者提起诉讼。如乙方逾期支付平台管理费或提供虚假信息的，丙方亦可单独向乙方追索或者提起诉讼。</p>
+<p class='MsoListParagraph textIndent'><b>8.  提前还款</b></p>
+<p class='MsoListParagraph textIndent'>8.1 在经甲方及丙方核准同意后，乙方可提前还款。</p>
+<p class='MsoListParagraph textIndent'>8.2 如乙方提前还款的申请获得通过，乙方按照本条规定提前清偿全部剩余借款本金时，应偿付截至对应还款日的利息、全部剩余本金、平台管理费及已欠付款项。</p>
+<p class='MsoListParagraph textIndent'>8.3 乙方提请清偿全部剩余借款本金的，还应向甲方支付提前还款补偿，提前还款补偿=乙方申请提前还款时应付剩余借款本金×1%。同时，乙方还应当按照本协议及其他相关约定支付其他应付款项（如有）。</p>
+<p class='MsoListParagraph' ><b>9.  法律适用及争议解决</b></p>
+<p class='MsoListParagraph textIndent'>9.1 本协议的签订、履行、终止、解释均适用中华人民共和国法律。</p>
+<p class='MsoListParagraph textIndent'>9.2 本协议在履行过程中，如发生任何争执或纠纷，各方应友好协商解决；若协商不成，任何一方均有权向有管辖权的人民法院提起诉讼。</p>
+<p class='MsoListParagraph' ><b>10.  附则</b></p>
+<p class='MsoListParagraph textIndent'>10.1 本协议根据第2条的规定成立时，本协议第2、6、9、10条即生效，本协议其他条款于甲方出借予乙方的出借资金划付至乙方之维金荟资金账户时即生效。在乙方将本协议项下的全部本金、利息、逾期罚息、平台管理费及其他所有相关费用全部偿还完毕后，本协议自动终止。</p>
+<p class='MsoListParagraph textIndent'>10.2 各方可以书面协议方式对本协议作出修改和补充。经过各方签署的有关本协议的修改协议和补充协议，以及本协议的附件均是本协议组成部分，具有与本协议同等的法律效力。</p>
+<p class='MsoListParagraph textIndent'>10.3 本协议及其修改或补充均采用通过维金荟网站以点击操作形成电子文本形式制成，可以有一份或者多份并且每一份具有同等法律效力，并永久保存在丙方为此设立的专用服务器上备查和保管。各方均认可该形式的协议效力。</p>
+<p class='MsoListParagraph textIndent'>10.4 如果本协议中的任何一条或多条因违反适用的法律法规被认定为无效、不具有强制执行效力的，则该等条款的无效、不具有强制执行效力并不影响本协议其他条款的效力。</p>
+<p class='MsoListParagraph textIndent'>10.5 本协议签订之日起至借款本息和有关费用全部清偿之日止，甲方的手机号码或者电子邮件地址发生变更的，应当在变更后立即至维金荟网站进行信息修改操作的方式通知丙方；乙方的下列信息如发生变更的，其应当在相关信息发生变更三日内将更新后的信息及时提供给丙方：本人的家庭联系人及紧急联系人、本人的工作单位、居住地址、住所电话、手机号码、电子邮件地址、银行账户的变更。<b>若因甲方/乙方不及时提供上述变更信息而带来的损失或额外费用应由该方自行承担。</b></p>
+<p class='MsoListParagraph textIndent'>10.6 乙方确认并保证：乙方申请和签约时提供的居住地址、电子邮件地址均为乙方的送达地址，提供的电话号码随时保持有效接通状态。本协议履行过程中，乙方若需变更上述地址和号码，应当以方式向丙方进行书面告知。在各方关于本协议的权利义务终止前，甲方、丙方因履行义务、实现权利之需要，或法院、仲裁机关、行政机关处理案件需要，可采取包括但不限于以下的方式进行送达通知：<br/>向乙方居住地址邮寄纸质文件，该等文件在投邮后的第三日（自邮寄当日起算）视为已送达；<br/>向乙方电子邮件地址发送电子文件（包括不限于本协议），该等文件在发送当日视为已送达；<br/>向乙方提供的电话号码拨打电话或发送短信，在拨打发送当日视为已通知已送达。</p>
+<p class='MsoNormal fb'>附件1：提前还款方案</p>
+<p class='MsoNormal'>甲方在借款期限内若提前全额还款的，应在按照《借款协议》的约定无违约<b>正常还款<u>${vo.earlierCleanMonth}个月</u></b>之后提出书面申请。若相关权利人核准同意，甲方一次性足额支付所有提前还款应付款项，包含：甲方应收的<b>借款本息和提前还款补偿</b>、丙方应收的<b>平台管理费</b>、甲方<b>已欠付款项</b>（若有）等应付款项。</p>
+<p class='LegalL2'>(以下无正文) </p>
+</body>
+</html>		

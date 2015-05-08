@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:social="http://spring.io/springsocial"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<!-- layout:decorator="portal/layout_simple"> -->
+<script th:src="@{/app/web/jquery/jquery-1.11.1.js}"></script>
+<!-- <script th:src="@{/app/web/security/security.js}"></script> -->
+<head>
+<title></title>
+<meta charset="utf-8" />
+</head>
+<body>
+<div hidden="true" id="tempDiv"><input name="" value="" /></div>
+<input hidden="true" id="url" name="url" th:value="${url}"  />
+<input hidden="true" id="con" name="con" th:value="${con}"  />
+<form id="openForm" action="" method="post" hidden="true">
+</form>
+<script type="text/javascript">
+	$(function(){
+		var url = $("#url").val();
+		var con = $("#con").val();
+		if (window.console) {
+			console.log('发往hf url：'+url+',con:'+con);
+		}
+		//访问p2p后台获取数据
+		$.ajax({
+		  type: 'POST',
+		  contentType:"application/json",
+		  url: url,
+		  data: con,  
+		  success: success,
+		  error: err,
+		  dataType: "json"
+		});
+		
+		function err(obj){
+			if (window.console) {
+				console.log('处理请求 '+url+' 发生错误:'+obj.statusText+',响应码：'+obj.status);
+			}
+			alert('处理请求 '+url+' 发生错误:'+obj.statusText+',响应码：'+obj.status);
+		}
+
+		//发送汇付数据
+		function success(obj){
+			if (window.console) {
+				console.log('step1:前台获取后台返回发往hf数据');
+				console.log(obj);
+			}
+			try{
+				var data = obj.data;
+				
+				for(var p in data){
+					console.log('step2:前台封装好发往hf数据 name:'+ p + ',value:' + data[p]);
+					$("#tempDiv").find("input").attr('name',p);
+			        $("#tempDiv").find("input").attr('value',data[p]);
+				    if("URL" == p){ //发送至哪里的URL不作为 form数据提交
+				    	$("#openForm").attr('action',data[p]);
+				    }else{
+				    	$("#openForm").append($("#tempDiv").html());	
+				    }
+				}
+				
+				if('' != $("#openForm").attr('action')){
+					$("#openForm").submit();
+				}else{
+					if (window.console) {
+						console.log('step2:前台封装好发往hf数据 异常');
+					}
+					var location = window.location;
+	                //var port = ':' + location.port;
+	                //var errUrl = location.protocol + "//" + location.hostname + port;
+	                var errUrl = location.protocol + "//" + location.hostname;
+					errUrl += '/#/fail/unknownFail/999/data4hfHasError';
+					window.location.href = errUrl;
+				}
+			}catch(e){
+				alert('拼装发往汇付数据出问题');
+			}
+			
+		}
+	});
+</script>
+</body>
+</html>

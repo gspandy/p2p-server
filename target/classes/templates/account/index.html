@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:social="http://spring.io/springsocial" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+<title>找回密码--重置密码</title>
+<meta charset="utf-8" />
+</head>
+<body>
+<form action="http://mertest.chinapnr.com/muser/publicRequests" method="post">
+	<input name="Version" th:value="${Version}"/><br/>
+	<input name="CmdId" th:value="${CmdId}"/><br/>
+	<input name="MerCustId" th:value="${MerCustId}"/><br/>
+	<input name="BgRetUrl" th:value="${BgRetUrl}"/><br/>
+<!-- 	<input name="RetUrl" th:value="${RetUrl}"/><br/> -->
+<!-- 	<input name="RetUrl" value="http://127.0.0.1:9090/p2p_trade_demo-JAVA/userRegister"/><br/> -->
+	<input name="ChkValue" th:value="${ChkValue}"/><br/>
+    <button type="submit">提交</button>
+</form>
+</body>
+</html>

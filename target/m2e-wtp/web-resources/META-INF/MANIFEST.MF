@@ -1,0 +1,9 @@
+Manifest-Version: 1.0
+Implementation-Vendor: Shark Xu
+Implementation-Title: p2p
+Implementation-Version: 1.0.0-SNAPSHOT
+Implementation-Vendor-Id: com.vcredit.jdev
+Build-Jdk: 1.7.0_60
+Built-By: admin
+Created-By: Maven Integration for Eclipse
+

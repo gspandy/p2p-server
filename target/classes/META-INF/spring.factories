@@ -1,0 +1,2 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+com.vcredit.jdev.p2p.autoconfig.P2pAutoConfig

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="GB2312"?>
+<DBSyncService>
+	<SourceDB name="mysql">
+		<SourceProc name="test">
+		</SourceProc>
+	</SourceDB>
+	
+	<DestDB name="sqlserver">
+		<GetDestTableIDProc name="proc_get_max_seq(?,?,?)">
+			<ParaIN>t_city</ParaIN>
+			<ParaIN>tc_id</ParaIN>
+		</GetDestTableIDProc>
+		<DestProc name="proc_sync_test(?,?,?,?,?,?,?,?,?,?)">
+			<Paras>
+				<Para>int</Para>
+				<Para>varchar</Para>
+				<Para>int</Para>
+				<Para>varchar</Para>
+				<Para>int</Para>
+				<Para>varchar</Para>
+				<Para>int</Para>
+				<Para>varchar</Para>
+				<Para>int</Para>
+				<Para>varchar</Para>
+			</Paras>
+		</DestProc>
+	</DestDB>
+</DBSyncService>

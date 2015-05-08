@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	  xmlns:social="http://spring.io/springsocial"
+	  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<body>
+	<div th:fragment="header">
+		<div class="sup-header">
+			<div class="wrapper">
+				<div class="sup_cont">
+					<div class="contact">
+						<ul>
+							<li class="phone">客服热线 : 400-720-7020</li>
+							<li class="vc">
+								<a id="wechatTag" href="#" style="width: 60px; heigth: 20px;">关注维信</a>
+							</li>
+						</ul>
+					</div>
+					
+					<div id="wechatPop" style="position: absolute;display: none;">
+						<img src="/obiz/app/web/images/QRcode.png" />
+					</div>
+			
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div th:fragment="navbar">
+		<div class="wrapper">
+			<div class="nav_logo">
+				<a th:href="@{/}" href="index.html" class="logo">
+					<img th:src="@{/app/web/images/logo.png}" src="../../static/web/images/logo.png" />
+				</a>
+			</div>
+			<div align="right" style="margin-bottom:0px;" th:if="${session.mediaName != null and session.mediaName != ''}"  >
+				<div class="form-group" style="padding-top:60px;">
+				<form id="submitForm" method="POST" th:action="@{/app/alliance/logout_1}">
+					<span th:text="${session.mediaName}"></span>，你好&nbsp;&nbsp;&nbsp;
+					 	<a href="#" onclick='logout(this);'>退出</a>
+					</form>
+				</div>
+			</div>
+		</div>	
+	</div>
+
+	<div th:fragment="logo">
+		<div class="wrapper">
+			<div class="nav_logo">
+				<a th:href="@{/}" href="index.html" class="logo">
+					<img th:src="@{/app/web/images/logo.png}" src="../../static/web/images/logo.png" />
+				</a>
+			</div>
+		</div>	
+	</div>
+
+	<div th:fragment="footer">
+		<div class="login-footer">
+			<div class="wrapper">
+				<div class="foot_copy">
+					<ul>
+						<li>
+							<a target="_blank" href="https://www.vcredit.com/About.html">关于我们</a>
+							<span>|</span>
+						</li>
+						<li>
+							<a target="_blank"  href="https://www.vcredit.com/Contact_us.html">联系我们</a>
+							<span>|</span>
+						</li>
+						<li>
+							<a target="_blank"  href="https://www.vcredit.com/Partner.html">合作伙伴</a>
+							<span>|</span>
+						</li>
+						<li>
+							<a target="_blank"  href="https://www.vcredit.com/Corporate.html">企业文化</a>
+							<span>|</span>
+						</li>
+						<li>
+							<a href="#">手机应用</a>
+							<span>|</span>
+						</li>
+						<li>
+							<a th:href="@{/app/main/map}">服务中心</a>
+							<span>|</span>
+						</li>
+						<li>
+							<a target="_blank"  href="https://www.vcredit.com/HR_VC.html">加入我们</a>
+						</li>
+						<li style="width: 280px;font-size: 18px;">
+							<span>业务咨询热线  <span style="font-weight: bold;">400-720-7020</span></span>
+						</li>
+					</ul>
+
+					<div class="line"></div>
+					<p>维信现贷—提供各类中小贷款，包含高薪群体贷款，白领一族贷款，有车有房贷款等多种贷款一站式服务</p>
+					<p style="margin: 0px;">Copyright ©2014 www.vcash.cn ALL Rights Reserved</p>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div th:fragment="alertModal">
+		<!-- Modal -->
+		<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="margin-top: 22%;">
+			<div class="modal-dialog" style="width: 400px">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">
+							<span aria-hidden="true">&times;</span>
+							<span class="sr-only">Close</span>
+						</button>
+						<h4 class="modal-title" id="myModalLabel">提示</h4>
+					</div>
+					<div class="modal-body" style="text-align: center">抱歉，您暂时无法提交贷款申请！</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div th:fragment = "commonScripts">
+		<script th:src="@{/app/web/bootstrap/js/bootstrap.min.js}"></script>
+		<script th:src="@{/app/web/js/bluebird.js}"></script>
+		<script th:src="@{/app/web/js/loader.js}"></script>
+		<script th:src="@{/app/web/strength.js/strength.js}"></script>
+		<script th:src="@{/app/web/js/portal/home.js}"></script>
+		<script th:src="@{/app/web/js/form-fill.js}"></script>
+		<script th:src="@{/app/web/parsley/parsley-2.0.3.min.js}"></script>
+		<script th:src="@{/app/web/parsley/parsley.remote.js}"></script>
+		<script th:src="@{/app/web/jquery/jquery.md5.js}"></script>
+	</div>
+	
+</body>
+</html>
